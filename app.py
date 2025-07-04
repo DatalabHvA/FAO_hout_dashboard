@@ -23,10 +23,10 @@ df_long["Value"] = pd.to_numeric(df_long["Value"], errors='coerce')
 
 # Sidebar filters
 st.sidebar.header("Filter Data")
-selected_country = st.sidebar.selectbox("Select Country", sorted(df_long["Area"].unique()))
-selected_item = st.sidebar.selectbox("Select Type of Wood", sorted(df_long[df_long["Area"] == selected_country]["Item"].unique()))
+selected_country = st.sidebar.selectbox("Select Country", sorted(df_long["Area"].unique()),30)
+selected_item = st.sidebar.selectbox("Select Type of Wood", sorted(df_long[df_long["Area"] == selected_country]["Item"].unique()),32)
 selected_element = st.sidebar.selectbox("Select Element (e.g. Production, Import Value)", 
-                                        sorted(df_long[(df_long["Area"] == selected_country) & (df_long["Item"] == selected_item)]["Element"].unique()))
+                                        sorted(df_long[(df_long["Area"] == selected_country) & (df_long["Item"] == selected_item)]["Element"].unique()),3)
 
 # Filter based on selection
 filtered = df_long[
